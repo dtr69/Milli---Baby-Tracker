@@ -108,7 +108,7 @@
     <header>
       <div class="container">
         <h1>Privacy Policy (Milli – Baby Tracker)</h1>
-        <p class="effective-date"><strong>Effective Date:</strong> March 24, 2026</p>
+        <p class="effective-date"><strong>Effective Date:</strong> April 5, 2026</p>
       </div>
     </header>
 
@@ -132,13 +132,15 @@
             title, invite codes, and join requests.
           </li>
           <li>
-            <strong>Baby care tracking data:</strong> logs you create, such as feeding, diaper, sleep,
-            shower, vitamin, growth, medicine, and symptom/activity entries (for example temperature,
-            medication, and puke/diarrhea tracking when enabled).
+            <strong>Baby care tracking data:</strong> logs you create as a parent or caregiver, such
+            as feeding, diaper, sleep, shower, vitamin, growth, medicine, and symptom/activity entries
+            (for example temperature, medication, and puke/diarrhea tracking when enabled). This data
+            is about your baby and is stored securely in our database. See Section 9 for how we handle
+            this sensitive data.
           </li>
           <li>
-            <strong>Optional baby profile data:</strong> baby age (weeks/months) and gender, if you
-            choose to enter it.
+            <strong>Optional baby profile data:</strong> baby name, age (weeks/months), gender, and
+            date of birth, if you choose to enter it.
           </li>
           <li>
             <strong>Notification data:</strong> device push token and platform (iOS/Android), plus
@@ -149,9 +151,17 @@
             (AsyncStorage) to support offline use and faster performance.
           </li>
           <li>
+            <strong>Analytics data:</strong> Google Firebase Analytics automatically collects data
+            about the <em>parent's or caregiver's</em> device and app usage — specifically: a random
+            app instance identifier, device model, OS version, app version, approximate location
+            (country/region derived from IP address), session duration, and which app features are
+            used. Firebase Analytics receives <strong>no baby data whatsoever</strong> — no names,
+            no health records, no care log contents. See Section 7 for full details.
+          </li>
+          <li>
             <strong>Advertising data:</strong> Google AdMob may collect device identifiers (such as
             Android Advertising ID), IP address, and general usage signals for the purpose of serving
-            ads. See Section 7 for details.
+            ads. See Section 8 for details.
           </li>
         </ul>
 
@@ -163,6 +173,7 @@
           <li>sync your data across devices and family members in the same family group;</li>
           <li>send family activity and reminder notifications;</li>
           <li>support account and family management;</li>
+          <li>understand how parents and caregivers use the app so we can improve features (analytics — using only device and usage data, never baby data);</li>
           <li>display ads through Google AdMob to support the free app;</li>
           <li>maintain app reliability and security.</li>
         </ul>
@@ -180,10 +191,15 @@
           <li>
             <strong>Service providers</strong> that power app functionality:
             <ul>
-              <li><strong>Supabase</strong> (authentication and database),</li>
+              <li><strong>Supabase</strong> (authentication and database — stores baby care tracking data and family data),</li>
               <li><strong>Expo push services</strong> (delivery of push notifications),</li>
               <li>
-                <strong>Google AdMob</strong> (advertising — see Section 7 for details and opt-out
+                <strong>Google Firebase Analytics</strong> (app usage analytics — receives device
+                and behavioral data about the parent's app session only; baby names, health records,
+                and care log contents are never shared with Firebase — see Section 7),
+              </li>
+              <li>
+                <strong>Google AdMob</strong> (advertising — see Section 8 for details and opt-out
                 options).
               </li>
             </ul>
@@ -225,6 +241,12 @@
             If you are the last member of a family group and delete your account, all family
             tracking history is permanently deleted along with your account.
           </li>
+          <li>
+            <strong>Firebase Analytics</strong> data (device and usage data about the parent's
+            session) is retained by Google for up to 14 months by default. You can reset your
+            Analytics identifier at any time by resetting your Android Advertising ID in device
+            settings (<em>Settings &gt; Google &gt; Ads</em>).
+          </li>
         </ul>
 
         <!-- ═══════════════════════════════════════════════════ 6. Your Choices and Rights -->
@@ -237,30 +259,72 @@
           <li>delete your account and associated data from within the app;</li>
           <li>leave a family group;</li>
           <li>disable notifications;</li>
-          <li>opt out of personalized ads (see Section 7).</li>
+          <li>opt out of analytics data collection by resetting or deleting your Android Advertising ID
+              (<em>Settings &gt; Google &gt; Ads</em>);</li>
+          <li>opt out of personalized ads (see Section 8).</li>
         </ul>
 
         <p>
           <strong>EU/EEA and UK residents (GDPR):</strong> You have the right to access, correct,
-          export, restrict processing of, or erase your personal data. To exercise these rights,
-          contact us at the address in Section 12. We will respond within 30 days.
+          export, restrict processing of, or erase your personal data, including baby care records.
+          To exercise these rights, contact us at the address in Section 13. We will respond within
+          30 days.
         </p>
 
         <p>
           <strong>California residents (CCPA/CPRA):</strong> We do not sell or share personal
           information for cross-context behavioral advertising. You have the right to know what
           personal information we collect, to delete it, and to opt out of its sale (which we do not
-          engage in). To make a request, contact us at the address in Section 12.
+          engage in). To make a request, contact us at the address in Section 13.
         </p>
 
-        <!-- ═══════════════════════════════════════════════════ 7. Advertising (AdMob) -->
-        <h2>7. Advertising</h2>
+        <!-- ═══════════════════════════════════════════════════ 7. Analytics (Firebase) -->
+        <h2>7. Analytics</h2>
+        <p>
+          Milli uses <strong>Google Firebase Analytics</strong> to understand how parents and
+          caregivers interact with the app — for example, which features are used most and whether
+          features like family sharing are adopted. This helps us prioritize improvements.
+        </p>
+        <p>Firebase Analytics collects the following data about the <strong>parent's or caregiver's device and session</strong>:</p>
+        <ul>
+          <li>a random App Instance ID (a randomly generated identifier, not linked to your account, your baby's profile, or any care data);</li>
+          <li>device model, OS version, and app version;</li>
+          <li>approximate location (country/region only, derived from IP address — not precise GPS);</li>
+          <li>session length and engagement time;</li>
+          <li>which screens are visited and which feature categories are used.</li>
+        </ul>
+        <p>We also log specific in-app events, for example:</p>
+        <ul>
+          <li>which tracking type was tapped (e.g., "feed", "sleep", "diaper") — the category label only, never the log contents;</li>
+          <li>whether family sharing features were used;</li>
+          <li>whether a session occurred before registration (to understand onboarding).</li>
+        </ul>
+        <p>
+          <strong>Firebase Analytics never receives:</strong> your baby's name, date of birth,
+          gender, growth measurements, health records, care log contents, temperature readings,
+          medication details, or any other data entered into tracking fields. We enforce this in
+          our code — no baby data is ever passed as an analytics event parameter.
+        </p>
+        <p>
+          Because the app's users are adults (parents and caregivers) and not children, Firebase
+          Analytics operates under standard data collection rules. The app is not classified as
+          child-directed under COPPA or Google Play's Designed for Families program.
+        </p>
+        <p>
+          Firebase Analytics is operated by Google LLC and governed by Google's privacy policy:
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            https://policies.google.com/privacy
+          </a>
+        </p>
+
+        <!-- ═══════════════════════════════════════════════════ 8. Advertising (AdMob) -->
+        <h2>8. Advertising</h2>
         <p>
           Milli is free and supported by ads provided by <strong>Google AdMob</strong>. AdMob may
           collect and use:
         </p>
         <ul>
-          <li>device advertising identifiers (Android Advertising ID / IDFA),</li>
+          <li>device advertising identifiers (Android Advertising ID),</li>
           <li>IP address and general location (country/region),</li>
           <li>app usage signals to serve and measure ads.</li>
         </ul>
@@ -277,27 +341,54 @@
           personalization. You will still see ads, but they will not be personalized.
         </p>
         <p>
-          Because Milli is a family/parenting app and not directed at children as independent users,
-          we do not serve child-directed ad requests.
+          Because Milli is a parenting tool used by adults and is not directed at children as
+          independent users, we do not serve child-directed ad requests.
         </p>
 
-        <!-- ═══════════════════════════════════════════════════ 8. Children's Privacy -->
-        <h2>8. Children's Privacy</h2>
+        <!-- ═══════════════════════════════════════════════════ 9. Children's Privacy and Baby Data -->
+        <h2>9. Children's Privacy and Baby Data</h2>
         <p>
-          Milli is intended for use by parents and caregivers, not by children directly. We do not
-          knowingly collect personal information from children under 13 as independent users. The
-          baby profile data you enter (age, gender) is provided by a parent or caregiver and is
-          used solely to power app features for that family.
+          Milli is used by <strong>parents and caregivers (adults)</strong> to track the care of
+          their newborns and infants. The app's core function is to record health and care
+          information — feeding amounts, sleep durations, diaper changes, growth measurements,
+          temperature, and medication — that relates to babies.
         </p>
         <p>
-          If you believe a child under 13 has created an account without parental consent, please
-          contact us at
-          <a href="mailto:mobileapplicationplaysystems@gmail.com">mobileapplicationplaysystems@gmail.com</a>
-          and we will delete the account promptly.
+          <strong>Who uses the app:</strong> The account holder is always the parent or caregiver.
+          Babies and children do not create accounts or interact with the app.
+        </p>
+        <p>
+          <strong>Baby health and care data</strong> is sensitive data about a minor. We treat it
+          with the highest level of care:
+        </p>
+        <ul>
+          <li>Stored in our database (Supabase) with encrypted transmission (HTTPS/TLS) and access controls.</li>
+          <li>Shared only with family members you explicitly invite into your family group.</li>
+          <li><strong>Never</strong> shared with Firebase Analytics, AdMob, or any other third party.
+              Analytics and advertising providers receive only device and usage data about the
+              parent's session — zero baby data.</li>
+          <li>Deleted when you delete your account or tracking history.</li>
+        </ul>
+        <p>
+          <strong>COPPA (US):</strong> We do not knowingly collect personal information directly
+          from children under 13. All data is entered by the parent or caregiver on behalf of their
+          baby. If you believe a child under 13 has independently registered an account, please
+          contact us immediately and we will delete it promptly.
+        </p>
+        <p>
+          <strong>GDPR Article 9 (EU/EEA):</strong> Baby health data (feeding, growth, symptoms,
+          temperature, medication) constitutes health data and is treated as a special category
+          under GDPR. It is processed solely on the basis of your explicit consent as the parent
+          or caregiver, for the purpose of providing the tracking features you have chosen to use.
+          You may withdraw consent and delete this data at any time from within the app.
+        </p>
+        <p>
+          If you have concerns about how your baby's data is handled, contact us at
+          <a href="mailto:mobileapplicationplaysystems@gmail.com">mobileapplicationplaysystems@gmail.com</a>.
         </p>
 
-        <!-- ═══════════════════════════════════════════════════ 9. Security -->
-        <h2>9. Security</h2>
+        <!-- ═══════════════════════════════════════════════════ 10. Security -->
+        <h2>10. Security</h2>
         <p>
           We use reasonable technical and organizational measures to protect your information,
           including encrypted data transmission (HTTPS/TLS) and access controls on our database.
@@ -305,16 +396,16 @@
           security.
         </p>
 
-        <!-- ═══════════════════════════════════════════════════ 10. International Processing -->
-        <h2>10. International Processing</h2>
+        <!-- ═══════════════════════════════════════════════════ 11. International Processing -->
+        <h2>11. International Processing</h2>
         <p>
           Your information may be processed by service providers in different countries than your
           own, including the United States. By using Milli, you consent to the transfer of your
           information to countries that may have different data protection rules than your country.
         </p>
 
-        <!-- ═══════════════════════════════════════════════════ 11. Changes to This Policy -->
-        <h2>11. Changes to This Policy</h2>
+        <!-- ═══════════════════════════════════════════════════ 12. Changes to This Policy -->
+        <h2>12. Changes to This Policy</h2>
         <p>
           We may update this Privacy Policy from time to time. The "Effective Date" above shows the
           latest version date. For material changes, we will notify you via an in-app notice or
@@ -322,8 +413,8 @@
           the revised policy.
         </p>
 
-        <!-- ═══════════════════════════════════════════════════ 12. Contact -->
-        <h2>12. Contact</h2>
+        <!-- ═══════════════════════════════════════════════════ 13. Contact -->
+        <h2>13. Contact</h2>
         <p>
           For privacy questions, data requests (access, deletion, export), or GDPR/CCPA inquiries:
         </p>
